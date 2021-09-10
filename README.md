@@ -1,162 +1,41 @@
 # paint-board
 
-
-
 ### basic usage
 
 ```js
-let paintBoard = new PaintBoard({
-  canvas,
-  logicalWidth : window.innerWidth,
-  logicalHeight : window.innerHeight,
-  strokeConfig : {
-    strokeWidth : 10,
-    strokeColor : penColor
-  }
+let range1 = new RangeComp({
+    mode : 'lr',
+    container : _('#ltr-wrap1'),
+    onDragStart : (event) =>{
+        console.log(range1.value)
+    },
+    onDragging : (event) =>{
+        console.log(range1.value)
+    }
 });
-
-paintBoard.Tool('pen');
 ```
 
 ---
 
-### Demo List
+### Demo
 
-- [basic usage](https://17x.github.io/paint-board-demo/basic)
-- [enable history](https://17x.github.io/paint-board-demo/history)
-- [load background, transparency back and optional output](https://17x.github.io/paint-board-demo/bg-and-clear)
-- [more tools](https://17x.github.io/paint-board-demo/more-tools)
-
+- [basic usage](https://17x.github.io/range-comp/)
 ---
 
 ### configs
 
-##### canvas `HTMLCanvasElement`
+##### mode `String`
+direction: lr, rl, tb, bt
+default: lr
 
-destination output
+##### container `HTMLNodeElement`
+main dom
 
-##### logicalWidth `Number`
+##### onDragStart `Function`
+gesture start
 
-canvas resolution width
+##### onDragging `Function`
+gesturing
 
-##### logicalHeight `Number`
-
-canvas resolution height
-
-##### strokeConfig `Object`
-
-contains
-
-- strokeWidth **`Number`**
-
-   line width to init
-- strokeColor **`String`**
-
-   line color to init
-
-##### background `Object`
-
-contains
-
-- color **`String`**
-
-- image **`HTMLImageElement`**
-
-##### enableHistory `Boolean`
-
-enable history
-
-##### historyMax `Number`
-
-history record stack max length
-
-##### historyInterval `Number`
-
-a time to help determine whether the new history record's creation between two operations
-
-##### clearColor `String`
-
-if you do wanna do  **real clear** , just set its value to **transparent**
-
-##### clearRadius `Number`
-
-actually clear is not a line but a dot.
-
----
-
-
-### Method codes
-
-INSTANCE.Method(CODE)
-
-
-
-##### Undo
-
-Apply last one (base on current history index) history record
-
-**enableHistory** is required
-
-
-
-##### Redo
-
-Apply next one (base on current history index) history record
-
-**enableHistory** is required
-
-
-
-##### clear
-
-Clean canvas
-
-
-
----
-
-### Tool codes
-
-INSTANCE.Tool(CODE)
-
-##### pen
-
-##### line
-
-##### polygon
-
-##### eraser
-
----
-
-### Other
-
-##### SaveData Function 
-with one `Object` parameter that contains
-
-  - `returnType` **`String`**
-
-      - arraybuffer
-    
-        beware arraybuffer do not contains metadata or other infos but only pixels data.  
-      return Buffer
-    
-      - file
-    
-        This return a **real file** that like you choose a file from local.
-    
-        you need combine use the cb parameter.  
-    
-      - base64
-    
-        return **`String`**
-  
-
-  - `compBg` **`Boolean`**
-
-  represent the output will be blend with background image (in the config).
-
-  - `cb` **`Function`**
-
-  callback for **returnType : 'file'** since this is an asynchronous action.
-
+##### onDragEnd `Function`
+gesture end
