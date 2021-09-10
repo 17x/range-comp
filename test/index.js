@@ -67,13 +67,16 @@ function Onload(){
         onDragging : updateRange5
     });
 
-    console.log(
-        range1,
-        range2,
-        range3,
-        range4,
-        range5
-    );
+    const updateRange6 = (e) => {
+        let v = range6.value;
+        setCssVar(range6.container, '--percent', Math.round(v * 100) + '%');
+    };
+    let range6 = new RangeComp({
+        mode : 'lr',
+        container : _('#ltr-wrap3'),
+        onDragStart : updateRange6,
+        onDragging : updateRange6
+    });
 };
 
 window.addEventListener('load', Onload);

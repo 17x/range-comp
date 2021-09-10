@@ -64,6 +64,9 @@ class RangeComp{
         onDragging = null,
         onDragEnd = null
     }){
+        if(!container){
+            throw new Error('PARAMETER ERROR: container');
+        }
         this.container = container;
 
         const move = (event) => {
@@ -106,4 +109,5 @@ class RangeComp{
     }
 }
 
-export default RangeComp;
+window.RangeComp = RangeComp;
+// export default RangeComp;

@@ -138,6 +138,49 @@
 			bottom: 0;
 			background: #32b8e2;
 		}
+
+		#ltr-wrap3 {
+			width: 150px;
+			height: 20px;
+			border: 1px solid #dfdfdf;
+			position: relative;
+			--percent: 100%;
+		}
+
+		#ltr-wrap3::after {
+			content: "";
+			position: absolute;
+			width: var(--percent);
+			height: 100%;
+			top: 0;
+			left: 0;
+			background: #32b8e2;
+		}
+
+		#ltr-wrap3-indicator {
+			width: 0;
+			height: 100%;
+			position: absolute;
+			top: 0;
+			/*left: 0;*/
+			left: var(--percent);
+
+			/*--percent: 100%;*/
+		}
+
+		#ltr-wrap3-indicator::after {
+			content: "";
+			position: absolute;
+			width: 16px;
+			height: 16px;
+			left: -8px;
+			box-shadow: 0 0 4px 1px #5a5a5a;
+			top: 2px;
+			background: #32b8e2;
+			border-radius: 16px;
+			z-index: 2;
+		}
+
 	</style>
 </head>
 <body>
@@ -161,8 +204,13 @@
 
 	<h5>bottom to top ↑</h5>
 	<div id="btt-wrap1"></div>
+
+	<h5>left to right →</h5>
+	<div id="ltr-wrap3">
+		<div id="ltr-wrap3-indicator"></div>
+	</div>
 </div>
-<script type="module" src="../build/range.min.js"></script>
-<script type="module" src="index.js"></script>
+<script src="../build/range.min.js"></script>
+<script src="index.js"></script>
 </body>
 </html>
