@@ -1,4 +1,5 @@
-# paint-board
+# range-comp
+low-level range component, not UI but provide the simplest interaction handler.
 
 ### basic usage
 
