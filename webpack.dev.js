@@ -13,7 +13,7 @@ module.exports = merge(common, {
     devServer : {
         host : ip.address(),
         clientLogLevel : 'silent',
-        port : 8085,
+        port : 8087,
         // historyApiFallback : true,
         //open: '/editor.html',
         compress : false,
